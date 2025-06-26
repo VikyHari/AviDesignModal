@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">avi-dash</string>
+    <string name="title_activity_main">avi-dash</string>
+    <string name="package_name">com.avironix.avidash</string>
+    <string name="custom_url_scheme">com.avironix.avidash</string>
+</resources>
