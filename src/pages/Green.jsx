@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, AreaChart, Area } from 'recharts';
 import { Plane, Leaf, DollarSign, MapPin, Droplets, Calendar, TrendingUp, Battery, AlertTriangle, Users, Clock, Target } from 'lucide-react';
+import DaaSSkeletonLoader from '../components/Skeleton';
 
 const Green = () => {
   const [selectedTimeRange, setSelectedTimeRange] = useState('7d');
@@ -113,6 +114,26 @@ const Green = () => {
       </div>
     </div>
   );
+
+      const [loading, setLoading] = useState(true);
+  
+
+
+   useEffect(() => {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 5000); // 5 seconds loading time
+  
+      return () => clearTimeout(timer);
+    }, []);
+
+    
+  if(loading){
+
+   return <div className='min-h-screen'>
+    <DaaSSkeletonLoader/>
+
+   </div>   }
 
   return (
     <div className="min-h-screen bg-gray-50">

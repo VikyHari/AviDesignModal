@@ -54,12 +54,12 @@ const Sidebar = () => {
   }, [isMobile, open]);
 
   const menuItems = [
-    { name: "Dashboard", icon: Home, path: "/", badge: null },
+    { name: "Dashboard", icon: Home, path: "/home", badge: null },
     { name: "Avi-Green", icon: Plane, path: "/green", badge: null },
     { name: "DaaS", icon: BarChart3, path: "/daas", badge: null },
     { name: "Map View", icon: MapPin, path: "/map", badge: null },
-    { name: "Users", icon: Users, path: "/users", badge: null },
-    { name: "Notifications", icon: Bell, path: "/notifications", badge: null },
+    { name: "Drone Operation", icon: Users, path: "/drone-operation", badge: null },
+    { name: "Operator Management", icon: Bell, path: "/operator-management", badge: null },
     { name: "Settings", icon: Settings, path: "/settings", badge: null },
     { name: "About", icon: Info, path: "/about", badge: null },
   ];

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, Plane, User, Lock } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { data, useNavigate } from 'react-router-dom';
 import logo from "../assets/logo.avif"
 import axios from 'axios';
+import { loginUser } from '../services/api';
+import { toast } from 'react-toastify';
 
 
 export default function DroneLogin() {
@@ -13,9 +15,19 @@ export default function DroneLogin() {
     password: ''
   });
 
-  const handleSubmit = () => {
-    console.log('Login attempted with:', formData);
-    route("/")
+   const handleSubmit = async() => {
+  try {
+     const response = await loginUser(formData);
+   if(response){
+   toast.success('Login successfully', {
+  onClose: () => route('/home'),
+  autoClose: 1500, // 1.5 seconds
+});
+
+   }
+  } catch (error) {
+    console.log(error);
+  }
   };
 
 

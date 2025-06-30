@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
   LineChart, BarChart, PieChart, Line, Bar, Pie, 
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell 
@@ -7,9 +7,29 @@ import {
   DollarSign, Drone, Calendar, Users, Map, Clock, 
   BatteryFull, Shield, PieChart as PieChartIcon, BarChart2 
 } from 'lucide-react';
+import DaaSSkeletonLoader from '../components/Skeleton';
 
 const DaaS = () => {
     const [selectedTimeRange, setSelectedTimeRange] = useState('7d');
+     const [loading, setLoading] = useState(true);
+  
+
+
+   useEffect(() => {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 5000); // 5 seconds loading time
+  
+      return () => clearTimeout(timer);
+    }, []);
+
+    
+  if(loading){
+
+   return <div className='min-h-screen'>
+    <DaaSSkeletonLoader/>
+
+   </div>   }
   
   const revenueData = [
     { month: 'Jan', revenue: 12500 },

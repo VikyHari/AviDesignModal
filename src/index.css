@@ -6,3 +6,6 @@ body {
   height: 100%;
   overflow: hidden;
 }
+.leaflet-pane {
+    z-index: 0 !important;
+}

@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function Header({ onMenuToggle, }) {
@@ -21,6 +22,7 @@ function Header({ onMenuToggle, }) {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const route = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -64,14 +66,14 @@ function Header({ onMenuToggle, }) {
     // }
 
     window.location.href = 'https://o6ix1si9kh.execute-api.ap-south-1.amazonaws.com/login?action=login';
-    
-
   };
 
   
 
+  
+
   return (
-    <header className="bg-white/95 backdrop-blur-sm border-b border-gray-200/50 shadow-sm sticky top-0 z-40">
+    <header className="bg-white/95 backdrop-blur-sm border-b border-gray-200/50 shadow-sm sticky top-0 z-40" style={{}}>
       <div className="flex items-center justify-between h-16 px-4 lg:px-6">
         
         <div className="flex items-center gap-4 flex-1">
@@ -240,7 +242,7 @@ function Header({ onMenuToggle, }) {
                   </div>
                 </div>
                 <div className="p-2">
-                  <button className="w-full flex items-center gap-3 p-3 hover:bg-gray-50 rounded-lg transition-colors text-left">
+                  <button className="w-full flex items-center gap-3 p-3 hover:bg-gray-50 rounded-lg transition-colors text-left" onClick={() => route("/profile")}>
                     <User size={16} className="text-gray-500" />
                     <span className="text-sm text-gray-700">My Profile</span>
                   </button>
